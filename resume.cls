@@ -1,133 +1,174 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Medium Length Professional CV - RESUME CLASS FILE
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
 %
 % This template has been downloaded from:
 % http://www.LaTeXTemplates.com
 %
-% This class file defines the structure and design of the template. 
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
 %
-% Original header:
-% Copyright (C) 2010 by Trey Hunner
-%
-% Copying and distribution of this file, with or without modification,
-% are permitted in any medium without royalty provided the copyright
-% notice and this notice are preserved. This file is offered as-is,
-% without any warranty.
-%
-% Created by Trey Hunner and modified by www.LaTeXTemplates.com
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ProvidesClass{resume}[2017/02/16 Resume class]
-
-\LoadClass[11pt, oneside, letterpaper]{article} % Font size and paper type
-
-\renewcommand*\rmdefault{lmr}
-
-\usepackage[parfill]{parskip} % Remove paragraph indentation
-\usepackage{array} % Required for boldface (\bf and \bfseries) tabular columns
-\usepackage{ifthen} % Required for ifthenelse statements
-
-\pagestyle{empty} % Suppress page numbers
-
 %----------------------------------------------------------------------------------------
-% HEADINGS COMMANDS: Commands for printing name and address
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\def \name#1{\def\@name{#1}} % Defines the \name command to set name
-\def \@name {} % Sets \@name to empty by default
+\documentclass{resume} % Use the custom resume.cls style
 
-\def \addressSep {~$\diamond$~} % Set default address separator to a diamond
+% Setup the language.
+% \usepackage[english]{babel}
+% \hyphenation{Some-long-word}
 
-% One, two or three address lines can be specified 
-\let \@addressone \relax
-\let \@addresstwo \relax
-\let \@addressthree \relax
+\usepackage[margin=0.5in]{geometry} % Document margins
+\usepackage{tabu}
+\usepackage{booktabs}
 
-% \address command can be used to set the first, second, and third address (last 2 optional)
-\def \address #1{
-  \@ifundefined{@addresstwo}{
-    \def \@addresstwo {#1}
-  }{
-  \@ifundefined{@addressthree}{
-  \def \@addressthree {#1}
-  }{
-     \def \@addressone {#1}
-  }}
-}
+\name{Yuanzhe (Ryan) Bian} % Your name
+% \address{} % Your addess (optional)
+\address{Sunnyvale, CA 94085 \\ (217)~$\cdot$~979~$\cdot$~1882 \\ bxbian951122@gmail.com} % Your phone number and email
 
-% \printaddress is used to style an address line (given as input)
-\def \printaddress #1{
-  \begingroup
-    \def \\ {\addressSep\ }
-    \centerline{#1}
-  \endgroup
-  \par
-  \addressskip
-}
-
-% \printname is used to print the name as a page header
-\def \printname {
-  \begingroup
-    \hfil{\MakeUppercase{\namesize\bf \@name}}\hfil
-    \nameskip\break
-  \endgroup
-}
+\begin{document}
 
 %----------------------------------------------------------------------------------------
-% PRINT THE HEADING LINES
+%	EDUCATION SECTION
 %----------------------------------------------------------------------------------------
 
-\let\ori@document=\document
-\renewcommand{\document}{
-  \ori@document  % Begin document
-  \printname % Print the name specified with \name
-  \@ifundefined{@addressone}{}{ % Print the first address if specified
-    \printaddress{\@addressone}}
-  \@ifundefined{@addresstwo}{}{ % Print the second address if specified
-    \printaddress{\@addresstwo}}
-     \@ifundefined{@addressthree}{}{ % Print the third address if specified
-    \printaddress{\@addressthree}}
-}
+\begin{rSection}{Education}
+
+{\bf University of Illinois at Urbana-Champaign} \hfill {August 2016 -- December 2018} \\
+Bachelor of Engineering, Computer Science \hfill GPA: 3.98 \\
+Dual Degree: Bachelor of Science, Mathematics
+
+\end{rSection}
 
 %----------------------------------------------------------------------------------------
-% SECTION FORMATTING
+%	WORK EXPERIENCE SECTION
 %----------------------------------------------------------------------------------------
 
-% Defines the rSection environment for the large sections within the CV
-\newenvironment{rSection}[2]{ % 1 input argument - section name
-  \sectionskip
-  \MakeUppercase{\bf #1} #2
-  \sectionlineskip
-  \hrule % Horizontal line
-  \begin{list}{}{ % List for each individual item in the section
-    \setlength{\leftmargin}{1.5em} % Margin within the section
-  }
-  \item[]
-}{
-  \end{list}
-}
+\begin{rSection}{Experience}
+
+{\em Focus: Mobile Applications, Audio and Video Calling, React-based Websites and Webtools.}
+
+\begin{rSubsection}{Meta Platforms, Inc.}{February 2019 -- Present}{Software Engineer}{Menlo Park, CA}
+\item Working on Messenger and Instagram. Develop real-time communication Android application. Mainly focus on audio and video calling solutions.
+\item Worked on telephony and Bluetooth integration and compliance on Reality Lab. Built dialer Android application using Kotlin.
+\item Worked on Ads Manager App Team. Built the React Native ad interface for advertisers. Adapted the product to latest design system and led the workstream to migrate to strong typing system.
+\end{rSubsection}
+
+\begin{rSubsection}{University of Illinois Research Park, EnterpriseWorks}{Jan - May 2018, Sep -- Dec 2018}{Software Engineer Internship}{Champaign, IL}
+\item Developed student portal mobile application for research park.
+\item Worked on a summit registration form website using Salesforce.
+\end{rSubsection}
+
+\begin{rSubsection}{Meta Platforms, Inc.}{May -- August 2018}{Software Engineer Internship}{Menlo Park, CA}
+\item Worked on internal geolocation data visualization webtool.
+\item Designed and implemented an augmented reality navigation App for internal usage to help employees find their meeting rooms.
+\end{rSubsection}
+
+\begin{rSubsection}{NextCapital Group}{June -- December 2017}{Software Engineer Internship}{Chicago, IL}
+
+\item Front-end group. Maintained NextCapital's front-end software using Angular and React.
+\item Upgraded the unit test framework. Result in $>50\%$ time saving on the CI by applying the new environment.
+\item Developed an internal management tool using Google Sheet to generate weekly report of bugs and tickets.
+
+\end{rSubsection}
+
+% \begin{rSubsection}{Nanjing University of Posts and Telecommunications, Department of Publicity}{Apr 15 -- Jun 16}{Technical Adviser \& Develop Lead}{Nanjing, China}
+
+% \item Wrote a class that using computer vision and machine learning techniques to identify verification code.
+% \item Led a group to develop a load-balancing RESTFul API service and a web-app that has millions of PV/yr.
+% \end{rSubsection}
+
+\end{rSection}
 
 %----------------------------------------------------------------------------------------
-% WORK EXPERIENCE FORMATTING
+%	Open Source Project
 %----------------------------------------------------------------------------------------
 
-\newenvironment{rSubsection}[4]{ % 4 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} \\% Bold company name and date on the right
- \vspace{-1em}
- \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
-  \\{\em #3} \hfill {#4} % Italic job title and location
-  }
-  \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
-   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
-  }{
-  \end{list}
-  \vspace{0.15em} % Some space after the list of bullet points
-}
+\begin{rSection}{Open Source Project}{https://github.com/rijn}
 
-% The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
-\def\namesize{\fontsize{14}{16}\selectfont} % Size of the name at the top of the document
-\def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
-\def\sectionlineskip{\smallskip} % The space above the horizontal line for each section 
-\def\nameskip{\smallskip} % The space after your name at the top
-\def\sectionskip{\smallskip} % The space after the heading section
+\begin{tabu} to \textwidth {X X @{\hspace{1.5em}}}
+{\bf iview/iview} & {\bf rijn/nodecho}\\
+\begin{tabu}{@{}l@{}}
+	UI components library with Vue.js. Main contri-\\butor.
+	Over 23k people star or fork the repository.
+\end{tabu}
+&
+\begin{tabu}{@{}l@{}}
+	A single user blog system powered by Node.js.\\
+	RESTFul API, Authorization, Markdown syntax.\\
+\end{tabu}\\
+\end{tabu}
+
+\begin{tabu} to \textwidth {X X @{\hspace{1.5em}}}
+{\bf react-native-emoji-input} & {\bf }\\
+\begin{tabu}{@{}l@{}}
+	The most powerful emoji input source in React \\Native.
+	Main contributor.
+\end{tabu}
+&
+\begin{tabu}{@{}l@{}}
+\end{tabu}\\
+\end{tabu}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	AWARD
+%----------------------------------------------------------------------------------------
+
+% \begin{rSection}{Honors and Awards}
+
+% \begin{tabu} to \textwidth {@{} >{\bfseries}X l r @{\hspace{1.5em}}}
+% First Prize in Collegiate Electronic Design Contest & NUPT & December 2014, 2015\\
+% First Prize in China Adolescents Sci \& Tech Innovation Contest & CAST & July 2014
+% \end{tabu}
+
+% \end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	Extracurricular Activities
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Extracurricular Activities}
+%
+%\begin{tabu} to \textwidth {@{} >{\bfseries}X X r @{\hspace{1.5em}}}
+%Student Lecturer & NUPT & December 2014\\
+%Design Lead & TEDx Event TEDxJinlingHighSchool & June 2012
+%\end{tabu}
+%
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Language and Technical Strengths}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Computer Languages & JavaScript, Kotlin, Java, React, React Native, Node.js, C, C++, Vue.js, \\
+&Python, PHP, Verilog, Haskell, C\#, CoffeeScript\\
+\end{tabular}
+
+\end{rSection}
+
+%----------------------------------------------------------------------------------------
+%	EXAMPLE SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{Section Name}
+
+%Section content\ldots
+
+%\end{rSection}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
